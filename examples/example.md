@@ -12,7 +12,7 @@ py:
 
 ## Introduction
 
-The link to the output file should be here: [example-out.html](http://htmlpreview.github.io/?https://github.com/mittelmark/pandoc-filter/blob/master/examples/example-out.html).
+The link to the output file should be here: [example-out.html](http://htmlpreview.github.io/?https://github.com/mittelmark/pandoc-filters/blob/master/examples/example-out.html).
 
 Here today's date calculated in Python:  `py import datetime;print(datetime.date.today())`
 

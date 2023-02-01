@@ -15,7 +15,7 @@ py:
 
 The link to the output file should be here: [example-out.html](http://htmlpreview.github.io/?https://github.com/mittelmark/pandoc-filters/blob/master/examples/example-out.html).
 
-Here is a link to a Markdown/HTML file using the kroki filter: [filter-kroki.md](filter-kroki.html)
+Here is a link to a Markdown/HTML file using the kroki filter: [filter-kroki.md](filter-kroki.md)
 
 Here today's date calculated in Python with inline code:  `py import datetime;print(datetime.date.today())`. 
 

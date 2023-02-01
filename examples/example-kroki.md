@@ -1,8 +1,7 @@
 ---
-title: "Long Title"
-author: 
-- Detlef Groth
-date: Wed Feb 1 22:14:50 2023
+title: "Kroki Filter Example"
+author: Detlef Groth
+date: 2023-02-01
 abstract: >
     Some abstract ...
     on several lines...
@@ -30,8 +29,17 @@ And here a mindmap:
 ++ sub hello 1.2
 + hello 2
 ++ sub hello 2.1
-- negative hello
+-- negative hello
 @endmindmap
+```
+
+And now we hide the code (echo=false), just showing the colors:
+
+
+```{.kroki echo=false}
+@startuml
+colors
+@enduml
 ```
 
 ## EOF

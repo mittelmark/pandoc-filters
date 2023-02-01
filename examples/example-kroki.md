@@ -25,8 +25,12 @@ And here a mindmap:
 
 ```{.kroki}
 @startmindmap
-+ hello
++ hello 1
+++ sub hello 1.1
+++ sub hello 1.2
 + hello 2
+++ sub hello 2.1
+- negative hello
 @endmindmap
 ```
 

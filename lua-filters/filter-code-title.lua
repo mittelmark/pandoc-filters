@@ -3,6 +3,7 @@
 filter-code-title.lua: lua script to add CSS and Vanilla Javascript to native Pandoc HTML output
 Adds a title to the code block if the pre block or the div block around has a title attribute
 
+Copyright © 2021 Michael Cysouw <cysouw@mac.com> (toc-css)
 Copyright © 2023 Detlef Groth <detlef (at) dgroth (dot) de>
 
 Permission to use, copy, modify, and/or distribute this software for any

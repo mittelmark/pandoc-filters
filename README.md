@@ -10,8 +10,9 @@ The following filters are provided:
 
 ## Other filter links
 
-* [pandoc-filter](https://github.com/pandoc/lua-filters)
-* [pantcl](https://github.com/mittelmark/pandoc-filters) - filters encoded in Tcl as well as standalone application
+* [lua: acronyms](https://github.com/tarleb/acronyms)
+* [lua: filters (collection)](https://github.com/pandoc/lua-filters)
+* [pantcl](https://github.com/mittelmark/pantcl) - filters encoded in Tcl as well as standalone application
 
 ## Installation
 

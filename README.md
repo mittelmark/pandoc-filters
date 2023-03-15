@@ -10,8 +10,9 @@ The following filters are provided:
 
 ## Other filter links
 
-* [lua: acronyms](https://github.com/tarleb/acronyms)
-* [lua: filters (collection)](https://github.com/pandoc/lua-filters)
+* [lua: acronyms](https://github.com/tarleb/acronyms)  - create abbreviations and lists of abbreviations
+* [lua: abstract-section](https://github.com/pandoc-ext/abstract-section) - place the abstract in the document not in the YAML header
+* [lua: filters](https://github.com/pandoc/lua-filters) - collection of lua filters
 * [pantcl](https://github.com/mittelmark/pantcl) - filters encoded in Tcl as well as standalone application
 
 ## Installation

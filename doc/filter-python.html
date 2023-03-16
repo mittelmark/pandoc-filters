@@ -229,7 +229,7 @@
 </head>
 <body>
 <center>
-<a href="filter-code-title.html">filter-code-title</a> - <a href="filter-python.html">filter-python</a>
+<a href="filter-code-title.html">filter-code-title</a> - <a href="filter-kroki.html">filter-kroki</a> - <a href="filter-python.html">filter-python</a>
 </center>
 <header id="title-block-header">
 <h1 class="title">Documentation Filter filter-python.lua</h1>
@@ -240,6 +240,14 @@
 <p>filter-python.lua - evaluate inline Python code in Markdown documents.</p>
 <h2 id="usage">Usage</h2>
 <pre><code>$ pandoc infile.md -o outfile.html -s --lua-filter /path/to/filter-python.lua</code></pre>
+<p>Chunk declaration: {.py}</p>
+<p>Chunk options: {.py option=value}</p>
+<ul>
+<li><em>cache</em> - should variables and functions be saved for subsequent code chunks, default: <em>false</em></li>
+<li><em>echo</em> - should the code chunk been show, default: <em>true</em></li>
+<li><em>eval</em> - should the code chunk be evaluated, default: <em>false</em></li>
+<li><em>results</em> - ‘show’ or ‘hide’ the results of code chunk evaluations, default: ‘show’</li>
+</ul>
 <h2 id="introduction">Introduction</h2>
 <p>This filter allows you evaluate Python code within your Markdown documents and add the output to your final document. It is a very simple filter which should be used to add a few lines of Python code without to much effort and additional tools. For more serious approaches you might be better using tools like <a href="https://github.com/jupyter/notebook">Jupyter notebooks</a> or <a href="https://github.com/mpastell/Pweave">pweave</a>.</p>
 <h2 id="code-blocks">Code Blocks</h2>
@@ -301,6 +309,34 @@ This is method test!
 <pre><code>This is method test!
 2
 </code></pre>
+<p>The code chunks can be as well evaluated invisibly, as you often only like to show for instance figures or tables but not the code which was generating them, in this case to hide code and output you might set show="hide" and echo=false like here:</p>
+<pre><code>    ```{.py echo=false results=&quot;hide&quot;}
+    x = 4
+    print(x)</code></pre>
+<pre><code>
+Here the &quot;output&quot;. You can&#39;t see anything:
+
+```{.py echo=false results=&quot;hide&quot;}
+x = 4
+print(x)</code></pre>
+<p>As you can see nothing I will now output the value of x, so that you believe me:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div>
+<pre><code>2
+</code></pre>
+<h2 id="figure-example">Figure Example</h2>
+<p>If you draw figures you have to save them as files within your code chunk as there is no default inclusion implemented. Here an example using Matplotlib</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span> <span class="op">*</span> np.pi, <span class="dv">200</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.sin(x)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">&#39;figure.png&#39;</span>)</span></code></pre></div>
+<p>You can then display the figure using standard Markdown syntax like here:</p>
+<pre><code>![](figure.png)</code></pre>
+<p><img src="figure.png" /></p>
 <h2 id="inline-python-code">Inline Python Code</h2>
 <p>You can as well place short inline code chunks inside your standard text. Currently this however has no access to variables and functions defined in the code chunks. Here an example to add a date inside your document.</p>
 <pre><code>This document was created on `py import datetime;print(datetime.date.today())`!</code></pre>
@@ -320,6 +356,10 @@ warranty, not even for merchantability or fitness for a particular purpose.</cod
 <p>After you copied the file to the user data directory you can use the filter like this:</p>
 <pre style="background: white;"><code>$ pandoc input.md -o output.html -s --lua-filter filter-python.lua</code></pre>
 <p>You can as well rename the file to something like code-title.lua.</p>
+<h2 id="todos">TODO’s</h2>
+<ul>
+<li>chunk option results="asis" to create Markdown code</li>
+</ul>
 <h2 id="author">Author</h2>
 <p>Detlef Groth, University of Potsdam, Germany</p>
 <h2 id="license">License</h2>

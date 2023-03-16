@@ -34,6 +34,18 @@ py:
 $ pandoc infile.md -o outfile.html -s --lua-filter /path/to/filter-python.lua
 ```
 
+Chunk declaration: `{.py}`
+
+Chunk options: `{.py option=value}`
+
+- _cache_ - should variables and functions be saved for subsequent code chunks,
+  default: _false_
+- _echo_ - should the code chunk been show, default: _true_
+- _eval_ - should the code chunk be evaluated, default: _false_
+- _results_ - 'show' or 'hide' the results of code chunk evaluations, default:
+  'show'
+
+
 ## Introduction
 
 This filter allows you evaluate Python code within your Markdown documents and add
@@ -128,6 +140,57 @@ x=x+1
 print(x)
 ```
 
+The code chunks can be as well evaluated invisibly, as you often only like to show
+for instance figures or tables but not the code which was generating them, in this
+case to hide code and output you might set `show="hide"` and `echo=false` like
+here:
+
+```
+    ```{.py echo=false results="hide"}
+    x = 4
+    print(x)
+   ```
+```
+
+Here the "output". You can't see anything:
+
+```{.py echo=false results="hide"}
+x = 4
+print(x)
+```
+
+As you can see nothing I will now output the value of x, so that you believe me:
+
+```{.py}
+print(x)
+```
+
+
+## Figure Example
+
+If you draw figures you have to save them as files within your code chunk as there
+is no default inclusion implemented. Here an example using Matplotlib
+
+```{.py}
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 2 * np.pi, 200)
+y = np.sin(x)
+
+fig, ax = plt.subplots()
+ax.plot(x, y)
+plt.savefig('figure.png')
+```
+
+You can then display the figure using standard Markdown syntax like here:
+
+```
+![](figure.png)
+```
+
+![](figure.png)
+
 ## Inline Python Code
 
 You can as well place short inline code chunks inside your standard text.
@@ -170,6 +233,10 @@ $ pandoc input.md -o output.html -s --lua-filter filter-python.lua
 ```
 
 You can as well rename the file to something like `code-title.lua`.
+
+## TODO's
+
+- chunk option `results="asis"` to create Markdown code
 
 ## Author
 

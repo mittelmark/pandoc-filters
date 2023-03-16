@@ -11,6 +11,7 @@ local pycount = 1
 local cache = false
 local eval = false
 local echo = true
+local results= "show"
 local code = ""
 local function toboolean(str)
     local bool = false
@@ -45,6 +46,7 @@ function CodeBlock(block)
         local echo = block.attributes.echo or echo or true
         local eval = block.attributes.eval or eval or false
         local cache = block.attributes.cache or cache or false
+        local results = block.attributes.results or results or "show"
         local result = ""
         if (tostring(cache) == "false") then
             code =""
@@ -65,6 +67,9 @@ function CodeBlock(block)
 
         end
         -- local fenced = '```\n%s\n```\n'
+        if results == "hide" then
+            result = ""
+        end    
         if (echo) then
             if (result ~= "") then
                 return {block,pandoc.CodeBlock(result)}

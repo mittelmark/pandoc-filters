@@ -15,3 +15,8 @@ docs:
 	cd doc && pandoc filter-kroki.md -o filter-kroki.html \
 		--lua-filter ../lua-filters/filter-kroki.lua -s \
 		-B header.html
+	cd doc && pandoc filter-link-to-html.md -o filter-link-to-html.html -s \
+		--lua-filter ../lua-filters/filter-link-to-html.lua -B header.html
+	
+doc/header.html: doc/header.md
+	cd doc && pandoc header.md -o header.html

@@ -159,7 +159,7 @@ this:
 $ pandoc input.md -o output.html -s --lua-filter filter-kroki.lua
 ```
 
-You can as well rename the file to something like `code-title.lua`.
+You can as well rename the file to something like `kroki.lua`.
 
 ## TODO's
 

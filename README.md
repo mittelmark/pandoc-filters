@@ -14,12 +14,12 @@ The following filters are provided:
 
 ## Other filter links
 
+* [tcl: pantcl](https://github.com/mittelmark/pantcl) - many filters encoded in Tcl as well as standalone application for document conversion
 * [lua: acronyms](https://github.com/tarleb/acronyms)  - create abbreviations and lists of abbreviations
 * [lua: abstract-section](https://github.com/pandoc-ext/abstract-section) - place the abstract in the document not in the YAML header
 * [lua: doi2cite](https://github.com/pandoc/lua-filters/tree/master/doi2cite)
   - add citations using just doi ids
 * [lua: filters](https://github.com/pandoc/lua-filters) - collection of lua filters
-* [tcl: pantcl](https://github.com/mittelmark/pantcl) - many filters encoded in Tcl as well as standalone application for document conversion
 
 ## Installation
 

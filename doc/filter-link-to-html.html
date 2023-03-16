@@ -180,10 +180,10 @@
 <h2 id="description">Description</h2>
 <p>This filter converts all links in a Document pointing to other Markdown or Rst files into HTML links. This is useful if you like to maintain a set of Markdown files which can be browsed on a website supporting and rendering such Markdown files as interactive documents such as Github or Gitlab powered websites. You can then convert these files to HTML and adapt the links accordingly to point to the HTML pages and not to the Markdown or Rst pages anymore.</p>
 <h2 id="examples">Examples</h2>
-<pre><code>This link to this Markdown page [filter-link-to-html](filter-link-to-html.md) will be converted to 
-an HTML link if the conversion to an HTML using the filter is done.</code></pre>
+<pre><code>This link to this Markdown page [filter-link-to-html](filter-link-to-html.md) will
+be converted to an HTML link if the conversion to an HTML using the filter is done.</code></pre>
 <p>Here the output:</p>
-<p>This link to this Markdown page <a href="filter-link-to-html.html">filter-link-to-html</a> will be converted to an HTML link if the conversion to an HTML using the filter is done. + hello 1</p>
+<p>This link to this Markdown page <a href="filter-link-to-html.html">filter-link-to-html</a> will be converted to an HTML link if the conversion to an HTML using the filter is done.</p>
 <h2 id="installation">Installation</h2>
 <p>Copy the file <code>filter-link-to-html.lua</code> to your <code>pandoc</code> user data directory. On Unix systems that is usually in <code>~/.local/share/pandoc</code>. You can find out the location of this directory by using the <code>-v</code> argument for the <code>pandoc</code> console application like this:</p>
 <pre style="background: white;"><code>$ pandoc -v

@@ -44,8 +44,8 @@ to the HTML pages and not to the Markdown or Rst pages anymore.
 ## Examples
 
 ```
-This link to this Markdown page [filter-link-to-html](filter-link-to-html.md) will be converted to 
-an HTML link if the conversion to an HTML using the filter is done.
+This link to this Markdown page [filter-link-to-html](filter-link-to-html.md) will
+be converted to an HTML link if the conversion to an HTML using the filter is done.
 ```
 
 Here the output:

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Detlef Groth, University of Potsdam, Germany" />
+  <meta name="dcterms.date" content="2023-03-16" />
+  <title>Documentation Filter filter-kroki.lua</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style>
+  body { max-width: 1000px; font-size: 100%; }
+  pre { background: rgb(250,229,211); padding: 8px; }
+  pre.sourceCode, pre.py { 
+      background: #eeeeee; 
+      padding: 8px;
+      font-size: 95%;
+  }
+  .code-title {
+    background: #dddddd;
+    padding: 8px;
+  } 
+  </style>
+</head>
+<body>
+<center>
+<a href="filter-code-title.html">filter-code-title</a> - <a href="filter-kroki.html">filter-kroki</a> - <a href="filter-python.html">filter-python</a>
+</center>
+<header id="title-block-header">
+<h1 class="title">Documentation Filter filter-kroki.lua</h1>
+<p class="author">Detlef Groth, University of Potsdam, Germany</p>
+<p class="date">2023-03-16</p>
+</header>
+<h2 id="name">Name</h2>
+<p><code>filter-kroki.lua</code> - create diagrams using the <a href="https://kroki.io">https://kroki.io/</a> webservice.</p>
+<h2 id="usage">Usage</h2>
+<pre><code>$ pandoc infile.md -o outfile.html -s --lua-filter /path/to/filter-kroki.lua</code></pre>
+<p>Chunk declaration: <code>{.kroki}</code></p>
+<p>Chunk options: <code>{.kroki option=value}</code></p>
+<ul>
+<li><em>cache</em> - should images be chaced locally and re-fetched if code changes, default: false</li>
+<li><em>caption</em> the figure caption, default: “”</li>
+<li><em>dia</em> - diagram type usch as ‘graphviz’, ‘plantuml’, ‘dbml’, ‘ditaa’ and many others,see <a href="https://kroki.io/#support">here</a> for formats, default: ‘plantuml’<br />
+</li>
+<li><em>echo</em> - should the code chunk been show, default: <em>true</em></li>
+<li><em>ext</em> - the file extension, either ‘svg’, ‘png’ or ‘pdf’, not all diagram types support ‘png’ and ‘pdf’, default: ‘svg’</li>
+<li><em>fig_path</em> - path to the image folder if <em>cache</em> is <em>true</em>, default: ‘images’</li>
+<li><em>fig_prefix</em> - filename prefix if <em>cache</em> is <em>true</em>, default: ‘kroki’</li>
+</ul>
+<p>You can change a few defaults: <em>cache</em>, <em>dia</em>, <em>echo</em>, <em>ext</em>, <em>fig_path</em>, <em>fig_prefix</em> in the YAML document preamble like this:</p>
+<pre><code>---
+...
+kroki:
+    fig_path: img
+    cache: true
+---</code></pre>
+<p>Thereafter all code chunks will have these as the default settings. ## Introduction</p>
+<p>This filter allows you embed diagram figures supported by the Kroki webservice without installing additional tools, only a existing Python interpreter is required. The figures can be cached locally if the code chunk option is set to true, images are the only fetched again if the source code changes.</p>
+<h2 id="examples">Examples</h2>
+<p>Let’s start with a PlantUML class diagram:</p>
+<pre><code>    ```{.kroki}
+    @startuml
+    class A {}
+    class B {}
+    A -&gt; B
+    @enduml
+    ``` </code></pre>
+<p>And here the output:</p>
+<pre class="kroki"><code>@startuml
+class A {}
+class B {}
+A -&gt; B
+@enduml</code></pre>
+<p><img src="https://kroki.io/plantuml/svg/eNpzKC5JLCopzc3hSs5JLC5WcFSoroUynUBMRwVdOwUnLofUvBSgIgBxtw73" alt="" /></p>
+<p>And here a PlantUML mindmap:</p>
+<pre class="kroki"><code>@startmindmap
++ hello 1
+++ sub hello 1.1
+++ sub hello 1.2
++ hello 2
+++ sub hello 2.1
+-- negative hello
+@endmindmap</code></pre>
+<p><img src="https://kroki.io/plantuml/svg/eNpzKC5JLCrJzcxLyU0s4NJWyEjNyclXMOTS1lYoLk2CcfUwBIzgao1QpYyAanV1FfJS0xNLMstSIaJcDqlACyCWAADTFyNI" alt="" /></p>
+<p>And now we hide the code (echo=false), just showing the colors:</p>
+<p><img src="https://kroki.io/plantuml/svg/eNpzKC5JLCopzc3hSs7PyS8q5nJIzUsBcgFy1Qko" alt="" /></p>
+<p>Let’s give now a Ditaa diagram, chunk settings <code>{.kroki dia="ditaa"}</code>:</p>
+<pre class="kroki" data-dia="ditaa"><code>+----------------------------------------+
+| File | Help   cEEE                     |
++-------------+--------------------------+
+|  ttk.Button | ttk.Combobox             |
++-------------+--------------------------+
+|             |                          |
+| tk.Listbox  | tk.Text                  |
+|             |                          |
+|            &lt;+&gt;                         |
+|             |                          |
+|             |                          |
+|             |                          |
++-------------+--------+-----------------+
+| ttk.Label            | ttk.Progressbar |
++----------------------+-----------------+</code></pre>
+<p><img src="https://kroki.io/ditaa/svg/eNrT1iUSaHPVKLhl5qQq1Ch4pOYUKCgoJLu6uipgAzVc2qha8ZuqUFKSredUWlKSnwc0HMRxzs9Nyk_Kr6DIVGStCjhBDVAp0EafzOISsIVgXkhqRQl2pSSYigRstO2IVUqCqVRTiiNctbGGKyh-fBKTUnNQjQcJBxTlpxelFhcnJRZhmIon2rQBcCd4LA==" alt="" /></p>
+<h2 id="installation">Installation</h2>
+<p>Copy the file <code>filter-kroki.lua</code> to your <code>pandoc</code> user data directory. On Unix systems that is usually in <code>~/.local/share/pandoc</code>. You can find out the location of this directory by using the <code>-v</code> argument for the <code>pandoc</code> console application like this:</p>
+<pre style="background: white;"><code>$ pandoc -v
+pandoc 2.14.2
+Compiled with pandoc-types 1.22, texmath 0.12.3.1, skylighting 0.11,
+citeproc 0.5, ipynb 0.1.0.1
+User data directory: /home/username/.local/share/pandoc
+Copyright (C) 2006-2021 John MacFarlane. Web:  https://pandoc.org
+This is free software; see the source for copying conditions. There is no
+warranty, not even for merchantability or fitness for a particular purpose.</code></pre>
+<p>After you copied the file to the user data directory you can use the filter like this:</p>
+<pre style="background: white;"><code>$ pandoc input.md -o output.html -s --lua-filter filter-kroki.lua</code></pre>
+<p>You can as well rename the file to something like <code>code-title.lua</code>.</p>
+<h2 id="todos">TODO’s</h2>
+<ul>
+<li>svg2png conversion using cairosvg</li>
+</ul>
+<h2 id="author">Author</h2>
+<p>Detlef Groth, University of Potsdam, Germany</p>
+<h2 id="license">License</h2>
+<pre style="background: white;"><code>Copyright 2023, Detlef Groth
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the “Software”), to deal in the
+Software without restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
+AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</code></pre>
+</body>
+</html>

@@ -79,18 +79,55 @@ local function download (url,filename)
     handle:close()
     return(result)
 end
-    
+
+
+-- Print contents of `tbl`, with indentation.
+-- `indent` sets the initial level of indentation.
+local function tprint (tbl, indent)
+  if not indent then indent = 0 end
+  for k, v in pairs(tbl) do
+    formatting = string.rep("  ", indent) .. k .. ": "
+    if type(v) == "table" then
+      print(formatting)
+      tprint(v, indent+1)
+    elseif type(v) == 'boolean' then
+      print(formatting .. tostring(v))      
+    else
+      print(formatting .. v)
+    end
+  end
+end
+local cache = "false"
+local ext = "svg"
+local dia = "plantuml"
+local fig_path = "images"
+local fig_prefix = "kroki"
+local echo = "true"
+
+function Meta (meta)
+    cache = meta.kroki.cache or "false"
+    ext  = meta.kroki.ext  or "svg"
+    dia  = meta.kroki.dia  or "plantuml"
+    fig_path = meta.kroki.fig_path  or "images"
+    fig_prefix = meta.kroki.fig_prefix or "kroki"
+    echo  = meta.kroki.echo  or "true"
+    return meta
+end
+
 function CodeBlock(block)
     if block.classes[1] == "kroki" then
-        local ext = block.attributes.ext or "svg"
-        local dia = block.attributes.dia or "plantuml"
+        local ext = block.attributes.ext or ext 
+        local dia = block.attributes.dia or dia
         dia       = string.lower(dia)
-        local echo = block.attributes.echo or "true"
-        local cache = block.attributes.cache or "true"
+        local echo = block.attributes.echo or echo
+        local cache = block.attributes.cache or cache
         local caption = block.attributes.caption or ""        
         local title = block.attributes.title or "" 
-        local fig_path = block.attributes.fig_path or "img"
-        local fig_prefix = block.attributes.fig_prefix or "kroki"
+        local fig_path = block.attributes.fig_path or fig_path
+        local fig_prefix = block.attributes.fig_prefix or fig_prefix
+        if type(ext) == "table" then
+            ext=ext[1]['text']
+        end
         local URL = "https://kroki.io/" .. dia .."/" .. ext .."/" .. compress(block.text)
         local img_attr = {
             id = block.identifier,
@@ -116,3 +153,10 @@ function CodeBlock(block)
         end
     end
 end
+
+
+-- Execute Meta first.
+return {
+    {Meta = Meta},
+    {CodeBlock = CodeBlock},
+}

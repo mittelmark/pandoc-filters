@@ -10,6 +10,8 @@ docs:
 	cd doc && pandoc filter-python.md -o filter-python.html \
 		--lua-filter ../lua-filters/filter-python.lua -s \
 		-B header.html
+	cd doc && htmlark filter-python.html -o temp.html
+	cd doc && mv temp.html filter-python.html
 	cd doc && pandoc filter-kroki.md -o filter-kroki.html \
 		--lua-filter ../lua-filters/filter-kroki.lua -s \
 		-B header.html

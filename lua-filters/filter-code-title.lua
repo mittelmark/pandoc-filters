@@ -23,11 +23,6 @@ css = [[
 <style>
 .code-title {
     display: inline-block;
-    padding: 5px 8px;
-    background-color: #E7E9EB;
-    color: #485A60;
-    font-size: 90%;
-    font-weight: 400;
 }
 </style>
 ]]

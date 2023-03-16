@@ -3,5 +3,10 @@ examples:
 		--lua-filter lua-filters/filter-code-title.lua
 
 docs:
+	cd doc && pandoc header.md -o header.html
 	cd doc && pandoc filter-code-title.md -o filter-code-title.html \
-		--lua-filter ../lua-filters/filter-code-title.lua -s
+		--lua-filter ../lua-filters/filter-code-title.lua -s \
+		-B header.html
+	cd doc && pandoc filter-python.md -o filter-python.html \
+		--lua-filter ../lua-filters/filter-python.lua -s \
+		-B header.html

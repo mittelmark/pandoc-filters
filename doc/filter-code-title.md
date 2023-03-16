@@ -1,5 +1,5 @@
 ---
-title: Documentation for the Lua Filter filter-code-title.lua 
+title: Documentation Filter filter-code-title.lua 
 author: Detlef Groth, University of Potsdam, Germany
 date: 2023-03-16
 header-includes: 

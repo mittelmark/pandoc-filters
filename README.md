@@ -9,7 +9,7 @@ The following filters are provided:
 - [filter-links-to-html.lua](lua-filters/filter-links-to-html.lua) - convert Markdown file extensions in links to HTML
 - [filter-code-title.lua](lua-filters/filter-code-title.lua) - add code block
   titles if a title option is given in curly braces for the code chunk - 
-[documentation)[https://htmlpreview.github.io/?https://raw.githubusercontent.com/mittelmark/pandoc-filters/master/doc/filter-code-title.html]
+(documentation)[https://htmlpreview.github.io/?https://raw.githubusercontent.com/mittelmark/pandoc-filters/master/doc/filter-code-title.html]
 
 ## Other filter links
 

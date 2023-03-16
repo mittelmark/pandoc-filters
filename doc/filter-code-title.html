@@ -242,6 +242,8 @@
 </header>
 <h2 id="name">Name</h2>
 <p><code>filter-code-title.lua</code> - add code block titles to your HTML documents.</p>
+<h2 id="usage">Usage</h2>
+<pre><code>$ pandoc infile.md -o outfile.html -s --lua-filter /path/to/filter-code-title.lua</code></pre>
 <h2 id="introduction">Introduction</h2>
 <p>This filter allows you to give your code blocks a title usually placed just above the code block, but the placement can be configured by the user using own style sheet settings in the YAML header. The filter does only work with HTML output and requires Javascript enabled browser.</p>
 <p>Here an example:</p>
@@ -251,8 +253,8 @@
      ```</code></pre>
 <p>The spacing at the beginning should be removed, they are just given to avoid interpretation of the example code by Pandoc.</p>
 <p>Here the output:</p>
-<div class="sourceCode" id="cb2" data-eval="true" title="Example 1:"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="ot">x</span> <span class="dv">1</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">puts</span> <span class="dt">$x</span></span></code></pre></div>
+<div class="sourceCode" id="cb3" data-eval="true" title="Example 1:"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="ot">x</span> <span class="dv">1</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">puts</span> <span class="dt">$x</span></span></code></pre></div>
 <p>To avoid the syntax coloring you can just omit the programming language indicator at the beginning of the chunk options like here:</p>
 <pre><code>     ```{class=&quot;sourceCode&quot; title=&quot;Example 2:&quot;}
      print(&quot;Hello World!);

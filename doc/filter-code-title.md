@@ -25,6 +25,12 @@ header-includes:
 
 `filter-code-title.lua` - add code block titles to your HTML documents.
 
+## Usage
+
+```
+$ pandoc infile.md -o outfile.html -s --lua-filter /path/to/filter-code-title.lua
+```
+
 ## Introduction
 
 This filter allows you to give your code blocks a title usually placed just above

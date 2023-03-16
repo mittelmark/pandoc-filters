@@ -117,6 +117,15 @@ This is free software; see the source for copying conditions. There is no
 warranty, not even for merchantability or fitness for a particular purpose.
 ```
 
+After you copied the file to the user data directory you can use the filter like
+this:
+
+```{style="background: white;"}
+$ pandoc input.md -o output.html -s --lua-filter filter-code-title.lua
+```
+
+You can as well rename the file to something like `code-title.lua`.
+
 ## Author
 
 Detlef Groth, University of Potsdam, Germany

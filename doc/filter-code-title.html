@@ -293,6 +293,9 @@ User data directory: /home/username/.local/share/pandoc
 Copyright (C) 2006-2021 John MacFarlane. Web:  https://pandoc.org
 This is free software; see the source for copying conditions. There is no
 warranty, not even for merchantability or fitness for a particular purpose.</code></pre>
+<p>After you copied the file to the user data directory you can use the filter like this:</p>
+<pre style="background: white;"><code>$ pandoc input.md -o output.html -s --lua-filter filter-code-title.lua</code></pre>
+<p>You can as well rename the file to something like <code>code-title.lua</code>.</p>
 <h2 id="author">Author</h2>
 <p>Detlef Groth, University of Potsdam, Germany</p>
 <h2 id="license">License</h2>

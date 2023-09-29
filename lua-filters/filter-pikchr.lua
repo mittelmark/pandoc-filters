@@ -18,8 +18,11 @@ function enc(data)
         return b:sub(c+1,c+1)
     end)..({ '', '==', '=' })[#data%3+1])
 end
-    
---  fossil or pikchr should be present on the path
+
+-- end of Wiki code
+
+-- actual filter implementation
+-- fossil or pikchr should be present on the path
 local function pikchr(markup)
     local svg = pandoc.pipe("fossil", {"pikchr"}, markup)
     return svg

@@ -85,6 +85,9 @@
   <![endif]-->
 </head>
 <body>
+<center>
+<a href="example-kroki.html">example-kroki</a> - <a href="example-pikchr.html">example-pikchr</a> - <a href="example-out.html">example-python</a>
+</center>
 <header id="title-block-header">
 <h1 class="title">Example File for Lua Filters</h1>
 <p class="author">Detlef Groth</p>
@@ -92,9 +95,12 @@
 </header>
 <h2 id="introduction">Introduction</h2>
 <p>The link to the output file should be here: <a href="http://htmlpreview.github.io/?https://github.com/mittelmark/pandoc-filters/blob/master/examples/example-out.html">example-out.html</a>.</p>
-<p>Here today’s date calculated in Python: 2023-02-01
-</p>
-<p>This is a test <em>this</em>.</p>
+<p>Here is a link to a Markdown/HTML file using the kroki filter: <a href="filter-kroki.html">filter-kroki.md</a></p>
+<p>Here today’s date calculated in Python with inline code: 2023-09-29
+.</p>
+<p>Please note that inline code has no access to variables declared outside.</p>
+<p>This is a test of <em>italics</em> and <strong>bold</strong> text.</p>
+<p>Chunk 1:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(z)</span></code></pre></div>
 <pre><code>0
@@ -104,6 +110,7 @@
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div>
 <pre><code>1
 </code></pre>
+<p>And another results are cached so previous variables are visible using dir:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">dir</span>())</span>
@@ -112,6 +119,7 @@
 [&#39;__annotations__&#39;, &#39;__builtins__&#39;, &#39;__cached__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;__warningregistry__&#39;, &#39;os&#39;, &#39;sys&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;]
 0
 </code></pre>
+<p>The next chunk has no cache, so x, y and z are not visible anymore.</p>
 <div class="sourceCode" id="cb7" data-cache="false"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>k<span class="op">=</span><span class="dv">1</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">dir</span>())</span></code></pre></div>
 <pre><code>[&#39;__annotations__&#39;, &#39;__builtins__&#39;, &#39;__cached__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;__warningregistry__&#39;, &#39;k&#39;, &#39;os&#39;, &#39;sys&#39;]

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Detlef Groth, University of Potsdam, Germany" />
+  <meta name="dcterms.date" content="2023-09-29" />
+  <title>Documentation Filter filter-pikchr.lua</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style>
+  body { max-width: 1000px; font-size: 100%; }
+  pre { background: rgb(250,229,211); padding: 8px; }
+  pre.sourceCode, pre.py { 
+      background: #eeeeee; 
+      padding: 8px;
+      font-size: 95%;
+  }
+  .code-title {
+    background: #dddddd;
+    padding: 8px;
+  } 
+  </style>
+</head>
+<body>
+<center>
+<a href="filter-code-title.html">filter-code-title</a> - <a href="filter-kroki.html">filter-kroki</a> - <a href="filter-link-to-html.html">filter-link-to-html</a> - <a href="filter-pikchr.html">filter-pikchr</a> - <a href="filter-python.html">filter-python</a>
+</center>
+<header id="title-block-header">
+<h1 class="title">Documentation Filter filter-pikchr.lua</h1>
+<p class="author">Detlef Groth, University of Potsdam, Germany</p>
+<p class="date">2023-09-29</p>
+</header>
+<h2 id="name">Name</h2>
+<p><code>filter-pikchr.lua</code> - create diagrams using the <a href="https://pikchr.org">https://pikchr.org/</a> diagram language.</p>
+<h2 id="usage">Usage</h2>
+<pre><code>$ pandoc infile.md -o outfile.html -s --lua-filter /path/to/filter-pikchr.lua</code></pre>
+<p>Chunk declaration: <code>{.pikchr}</code></p>
+<p>Chunk options: <code>{.pikchr option=value}</code></p>
+<ul>
+<li><em>width</em> - the figure width, it is advisable to adapt the width or height only, default: full width</li>
+<li><em>height</em> the figure height, it is advisable to adapt the width or height only,default: full height</li>
+<li><em>echo</em> - should the code chunk been show, default: <em>false</em></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>This filter allows you embed diagram figures supported by the Pikchr diagram language. It requires that either the pikchr or the fossil command line applications are installed and can be executed from the PATH. These tools can be either installed from your package manager or installed from here:</p>
+<ul>
+<li>https://www2.fossil-scm.org/home/uv/download.html</li>
+<li>https://pikchr.org/home/doc/trunk/doc/download.md</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<p>Let’s just show the standard example:</p>
+<pre><code>    ```{.pikchr}
+    arrow right 200% &quot;Markdown&quot; &quot;Source&quot;
+    box rad 10px &quot;Markdown&quot; &quot;Formatter&quot; &quot;(markdown.c)&quot; fit
+    arrow right 200% &quot;HTML+SVG&quot; &quot;Output&quot;
+    arrow &lt;-&gt; down 70% from last box.s
+    box same &quot;Pikchr&quot; &quot;Formatter&quot; &quot;(pikchr.c)&quot; fit
+    ```</code></pre>
+<p>And here the output:</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGNsYXNzPSJwaWtjaHIiIHZpZXdCb3g9IjAgMCA0MjMuODIxIDE5NS44NCI+Cjxwb2x5Z29uIHBvaW50cz0iMTQ2LDM3IDEzNCw0MSAxMzQsMzMiIHN0eWxlPSJmaWxsOnJnYigwLDAsMCkiLz4KPHBhdGggZD0iTTIsMzdMMTQwLDM3IiAgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6Mi4xNjtzdHJva2U6cmdiKDAsMCwwKTsiIC8+Cjx0ZXh0IHg9Ijc0IiB5PSIyNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPk1hcmtkb3duPC90ZXh0Pgo8dGV4dCB4PSI3NCIgeT0iNDkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5Tb3VyY2U8L3RleHQ+CjxwYXRoIGQ9Ik0xNjEsNzJMMjU4LDcyQTE1IDE1IDAgMCAwIDI3MyA1N0wyNzMsMTdBMTUgMTUgMCAwIDAgMjU4IDJMMTYxLDJBMTUgMTUgMCAwIDAgMTQ2IDE3TDE0Niw1N0ExNSAxNSAwIDAgMCAxNjEgNzJaIiAgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6Mi4xNjtzdHJva2U6cmdiKDAsMCwwKTsiIC8+Cjx0ZXh0IHg9IjIwOSIgeT0iMTciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5NYXJrZG93bjwvdGV4dD4KPHRleHQgeD0iMjA5IiB5PSIzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPkZvcm1hdHRlcjwvdGV4dD4KPHRleHQgeD0iMjA5IiB5PSI1NyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPihtYXJrZG93bi5jKTwvdGV4dD4KPHBvbHlnb24gcG9pbnRzPSI0MTcsMzcgNDA1LDQxIDQwNSwzMyIgc3R5bGU9ImZpbGw6cmdiKDAsMCwwKSIvPgo8cGF0aCBkPSJNMjczLDM3TDQxMSwzNyIgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjIuMTY7c3Ryb2tlOnJnYigwLDAsMCk7IiAvPgo8dGV4dCB4PSIzNDUiIHk9IjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJyZ2IoMCwwLDApIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+SFRNTCtTVkc8L3RleHQ+Cjx0ZXh0IHg9IjM0NSIgeT0iNDkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5PdXRwdXQ8L3RleHQ+Cjxwb2x5Z29uIHBvaW50cz0iMjA5LDcyIDIxNCw4NCAyMDUsODQiIHN0eWxlPSJmaWxsOnJnYigwLDAsMCkiLz4KPHBvbHlnb24gcG9pbnRzPSIyMDksMTIzIDIwNSwxMTEgMjE0LDExMSIgc3R5bGU9ImZpbGw6cmdiKDAsMCwwKSIvPgo8cGF0aCBkPSJNMjA5LDc4TDIwOSwxMTciICBzdHlsZT0iZmlsbDpub25lO3N0cm9rZS13aWR0aDoyLjE2O3N0cm9rZTpyZ2IoMCwwLDApOyIgLz4KPHBhdGggZD0iTTE3NiwxOTNMMjQzLDE5M0ExNSAxNSAwIDAgMCAyNTggMTc4TDI1OCwxMzhBMTUgMTUgMCAwIDAgMjQzIDEyM0wxNzYsMTIzQTE1IDE1IDAgMCAwIDE2MSAxMzhMMTYxLDE3OEExNSAxNSAwIDAgMCAxNzYgMTkzWiIgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjIuMTY7c3Ryb2tlOnJnYigwLDAsMCk7IiAvPgo8dGV4dCB4PSIyMDkiIHk9IjEzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPlBpa2NocjwvdGV4dD4KPHRleHQgeD0iMjA5IiB5PSIxNTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5Gb3JtYXR0ZXI8L3RleHQ+Cjx0ZXh0IHg9IjIwOSIgeT0iMTc4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJyZ2IoMCwwLDApIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+KHBpa2Noci5jKTwvdGV4dD4KPC9zdmc+Cg==" alt="pikchr diagram" /></p>
+<p>And here the same code and the output using an adapted width and echo enabled (<code>{.pikchr width=400 echo=true}</code>):</p>
+<pre class="pikchr" width="400" data-echo="true"><code>arrow right 200% &quot;Markdown&quot; &quot;Source&quot;
+box rad 10px &quot;Markdown&quot; &quot;Formatter&quot; &quot;(markdown.c)&quot; fit
+arrow right 200% &quot;HTML+SVG&quot; &quot;Output&quot;
+arrow &lt;-&gt; down 70% from last box.s
+box same &quot;Pikchr&quot; &quot;Formatter&quot; &quot;(pikchr.c)&quot; fit</code></pre>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGNsYXNzPSJwaWtjaHIiIHZpZXdCb3g9IjAgMCA0MjMuODIxIDE5NS44NCI+Cjxwb2x5Z29uIHBvaW50cz0iMTQ2LDM3IDEzNCw0MSAxMzQsMzMiIHN0eWxlPSJmaWxsOnJnYigwLDAsMCkiLz4KPHBhdGggZD0iTTIsMzdMMTQwLDM3IiAgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6Mi4xNjtzdHJva2U6cmdiKDAsMCwwKTsiIC8+Cjx0ZXh0IHg9Ijc0IiB5PSIyNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPk1hcmtkb3duPC90ZXh0Pgo8dGV4dCB4PSI3NCIgeT0iNDkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5Tb3VyY2U8L3RleHQ+CjxwYXRoIGQ9Ik0xNjEsNzJMMjU4LDcyQTE1IDE1IDAgMCAwIDI3MyA1N0wyNzMsMTdBMTUgMTUgMCAwIDAgMjU4IDJMMTYxLDJBMTUgMTUgMCAwIDAgMTQ2IDE3TDE0Niw1N0ExNSAxNSAwIDAgMCAxNjEgNzJaIiAgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6Mi4xNjtzdHJva2U6cmdiKDAsMCwwKTsiIC8+Cjx0ZXh0IHg9IjIwOSIgeT0iMTciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5NYXJrZG93bjwvdGV4dD4KPHRleHQgeD0iMjA5IiB5PSIzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPkZvcm1hdHRlcjwvdGV4dD4KPHRleHQgeD0iMjA5IiB5PSI1NyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPihtYXJrZG93bi5jKTwvdGV4dD4KPHBvbHlnb24gcG9pbnRzPSI0MTcsMzcgNDA1LDQxIDQwNSwzMyIgc3R5bGU9ImZpbGw6cmdiKDAsMCwwKSIvPgo8cGF0aCBkPSJNMjczLDM3TDQxMSwzNyIgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjIuMTY7c3Ryb2tlOnJnYigwLDAsMCk7IiAvPgo8dGV4dCB4PSIzNDUiIHk9IjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJyZ2IoMCwwLDApIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+SFRNTCtTVkc8L3RleHQ+Cjx0ZXh0IHg9IjM0NSIgeT0iNDkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5PdXRwdXQ8L3RleHQ+Cjxwb2x5Z29uIHBvaW50cz0iMjA5LDcyIDIxNCw4NCAyMDUsODQiIHN0eWxlPSJmaWxsOnJnYigwLDAsMCkiLz4KPHBvbHlnb24gcG9pbnRzPSIyMDksMTIzIDIwNSwxMTEgMjE0LDExMSIgc3R5bGU9ImZpbGw6cmdiKDAsMCwwKSIvPgo8cGF0aCBkPSJNMjA5LDc4TDIwOSwxMTciICBzdHlsZT0iZmlsbDpub25lO3N0cm9rZS13aWR0aDoyLjE2O3N0cm9rZTpyZ2IoMCwwLDApOyIgLz4KPHBhdGggZD0iTTE3NiwxOTNMMjQzLDE5M0ExNSAxNSAwIDAgMCAyNTggMTc4TDI1OCwxMzhBMTUgMTUgMCAwIDAgMjQzIDEyM0wxNzYsMTIzQTE1IDE1IDAgMCAwIDE2MSAxMzhMMTYxLDE3OEExNSAxNSAwIDAgMCAxNzYgMTkzWiIgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjIuMTY7c3Ryb2tlOnJnYigwLDAsMCk7IiAvPgo8dGV4dCB4PSIyMDkiIHk9IjEzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPlBpa2NocjwvdGV4dD4KPHRleHQgeD0iMjA5IiB5PSIxNTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5Gb3JtYXR0ZXI8L3RleHQ+Cjx0ZXh0IHg9IjIwOSIgeT0iMTc4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJyZ2IoMCwwLDApIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+KHBpa2Noci5jKTwvdGV4dD4KPC9zdmc+Cg==" width="400" alt="pikchr diagram" /></p>
+<h2 id="installation">Installation</h2>
+<p>Copy the file <code>filter-pikchr.lua</code> to your <code>pandoc</code> user data directory. On Unix systems that is usually in <code>~/.local/share/pandoc</code>. You can find out the location of this directory by using the <code>-v</code> argument for the <code>pandoc</code> console application like this:</p>
+<pre style="background: white;"><code>$ pandoc -v
+pandoc 2.14.2
+Compiled with pandoc-types 1.22, texmath 0.12.3.1, skylighting 0.11,
+citeproc 0.5, ipynb 0.1.0.1
+User data directory: /home/username/.local/share/pandoc
+Copyright (C) 2006-2021 John MacFarlane. Web:  https://pandoc.org
+This is free software; see the source for copying conditions. There is no
+warranty, not even for merchantability or fitness for a particular purpose.</code></pre>
+<p>After you copied the file to the user data directory you can use the filter like this:</p>
+<pre style="background: white;"><code>$ pandoc input.md -o output.html -s --lua-filter filter-pikchr.lua</code></pre>
+<p>You can as well rename the file to something like <code>pikchr.lua</code>.</p>
+<h2 id="todos">TODO’s</h2>
+<ul>
+<li>svg2png conversion using cairosvg</li>
+<li>save cached images instead if embedding</li>
+</ul>
+<h2 id="author">Author</h2>
+<p>Detlef Groth, University of Potsdam, Germany</p>
+<h2 id="license">License</h2>
+<pre style="background: white;"><code>Copyright 2023, Detlef Groth
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the “Software”), to deal in the
+Software without restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
+AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</code></pre>
+</body>
+</html>

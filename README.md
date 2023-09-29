@@ -4,6 +4,9 @@ Various filters in Lua and Tcl for the Pandoc document processor
 
 The following filters are provided:
 
+-       [filter-pikchr.lua](lua-filters/filter-pikchr.lua)      -      [Manual
+:orange_book:](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mittelmark/pandoc-filters/master/doc/filter-pikchr.html)
+- adding [pikchr]([https://pikchr.org) diagrams to your documentation directly
 - [filter-python.lua](lua-filters/filter-python.lua) -
 [Manual :orange_book:](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mittelmark/pandoc-filters/master/doc/filter-python.html) - embed and evaluate Python code in Markdown documents, here an [HTML output file](http://htmlpreview.github.io/?https://github.com/mittelmark/pandoc-filters/blob/master/examples/example-out.html)
 - [filter-kroki.lua](lua-filters/filter-kroki.lua) - 

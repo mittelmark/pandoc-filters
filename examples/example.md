@@ -1,13 +1,16 @@
 ---
-title: "Example File for Lua Filters"
+title: Example File for Lua Filters
 author: Detlef Groth
 date: 2023-02-01
-abstract: >
-    Some abstract ...
-    on several lines...
 py:
     cache: true
     eval: true
+include-before: |
+    <center> 
+    [example-kroki](example-kroki.html) - 
+    [example-pikchr](example-pikchr.html) -
+    [example-python](example-out.html)  
+    </center>
 ---
 
 

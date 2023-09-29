@@ -1,12 +1,13 @@
 ---
-title: "Kroki Filter Example"
+title: Kroki Filter Example
 author: Detlef Groth
 date: 2023-02-01
-abstract: >
-    Some abstract ...
-    on several lines...
-kroki:
-    cache: false    
+include-before: |
+    <center> 
+    [example-kroki](example-kroki.html) - 
+    [example-pikchr](example-pikchr.html) -
+    [example-python](example-out.html)  
+    </center>
 ---
 
 ## Introduction

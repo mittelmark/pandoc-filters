@@ -105,13 +105,16 @@ local fig_prefix = "kroki"
 local echo = "true"
 
 function Meta (meta)
-    cache = meta.kroki.cache or "false"
-    ext  = meta.kroki.ext  or "svg"
-    dia  = meta.kroki.dia  or "plantuml"
-    fig_path = meta.kroki.fig_path  or "images"
-    fig_prefix = meta.kroki.fig_prefix or "kroki"
-    echo  = meta.kroki.echo  or "true"
-    return meta
+    if meta.kroki then
+        cache = meta.kroki.cache or "false"
+        ext  = meta.kroki.ext  or "svg"
+        dia  = meta.kroki.dia  or "plantuml"
+        fig_path = meta.kroki.fig_path  or "images"
+        fig_prefix = meta.kroki.fig_prefix or "kroki"
+        echo  = meta.kroki.echo  or "true"
+        return meta
+    end
+    return Nil
 end
 
 function CodeBlock(block)

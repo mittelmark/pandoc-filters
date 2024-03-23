@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Detlef Groth" />
+  <meta name="dcterms.date" content="2023-09-29" />
+  <title>Pikchr Filter Example</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="pydoc.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<center>
+<a href="example-kroki.html">example-kroki</a> - <a href="example-pikchr.html">example-pikchr</a> - <a href="example-out.html">example-python</a>
+</center>
+<header id="title-block-header">
+<h1 class="title">Pikchr Filter Example</h1>
+<p class="author">Detlef Groth</p>
+<p class="date">2023-09-29</p>
+</header>
+<h2 id="introduction">Introduction</h2>
+<p>This is a Pikchr example. Here a flowchart diagram:</p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGNsYXNzPSJwaWtjaHIiIHZpZXdCb3g9IjAgMCA0MjMuODIxIDE5NS44NCI+Cjxwb2x5Z29uIHBvaW50cz0iMTQ2LDM3IDEzNCw0MSAxMzQsMzMiIHN0eWxlPSJmaWxsOnJnYigwLDAsMCkiLz4KPHBhdGggZD0iTTIsMzdMMTQwLDM3IiAgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6Mi4xNjtzdHJva2U6cmdiKDAsMCwwKTsiIC8+Cjx0ZXh0IHg9Ijc0IiB5PSIyNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPk1hcmtkb3duPC90ZXh0Pgo8dGV4dCB4PSI3NCIgeT0iNDkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5Tb3VyY2U8L3RleHQ+CjxwYXRoIGQ9Ik0xNjEsNzJMMjU4LDcyQTE1IDE1IDAgMCAwIDI3MyA1N0wyNzMsMTdBMTUgMTUgMCAwIDAgMjU4IDJMMTYxLDJBMTUgMTUgMCAwIDAgMTQ2IDE3TDE0Niw1N0ExNSAxNSAwIDAgMCAxNjEgNzJaIiAgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6Mi4xNjtzdHJva2U6cmdiKDAsMCwwKTsiIC8+Cjx0ZXh0IHg9IjIwOSIgeT0iMTciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5NYXJrZG93bjwvdGV4dD4KPHRleHQgeD0iMjA5IiB5PSIzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPkZvcm1hdHRlcjwvdGV4dD4KPHRleHQgeD0iMjA5IiB5PSI1NyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPihtYXJrZG93bi5jKTwvdGV4dD4KPHBvbHlnb24gcG9pbnRzPSI0MTcsMzcgNDA1LDQxIDQwNSwzMyIgc3R5bGU9ImZpbGw6cmdiKDAsMCwwKSIvPgo8cGF0aCBkPSJNMjczLDM3TDQxMSwzNyIgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjIuMTY7c3Ryb2tlOnJnYigwLDAsMCk7IiAvPgo8dGV4dCB4PSIzNDUiIHk9IjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJyZ2IoMCwwLDApIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+SFRNTCtTVkc8L3RleHQ+Cjx0ZXh0IHg9IjM0NSIgeT0iNDkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5PdXRwdXQ8L3RleHQ+Cjxwb2x5Z29uIHBvaW50cz0iMjA5LDcyIDIxNCw4NCAyMDUsODQiIHN0eWxlPSJmaWxsOnJnYigwLDAsMCkiLz4KPHBvbHlnb24gcG9pbnRzPSIyMDksMTIzIDIwNSwxMTEgMjE0LDExMSIgc3R5bGU9ImZpbGw6cmdiKDAsMCwwKSIvPgo8cGF0aCBkPSJNMjA5LDc4TDIwOSwxMTciICBzdHlsZT0iZmlsbDpub25lO3N0cm9rZS13aWR0aDoyLjE2O3N0cm9rZTpyZ2IoMCwwLDApOyIgLz4KPHBhdGggZD0iTTE3NiwxOTNMMjQzLDE5M0ExNSAxNSAwIDAgMCAyNTggMTc4TDI1OCwxMzhBMTUgMTUgMCAwIDAgMjQzIDEyM0wxNzYsMTIzQTE1IDE1IDAgMCAwIDE2MSAxMzhMMTYxLDE3OEExNSAxNSAwIDAgMCAxNzYgMTkzWiIgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjIuMTY7c3Ryb2tlOnJnYigwLDAsMCk7IiAvPgo8dGV4dCB4PSIyMDkiIHk9IjEzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPlBpa2NocjwvdGV4dD4KPHRleHQgeD0iMjA5IiB5PSIxNTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5Gb3JtYXR0ZXI8L3RleHQ+Cjx0ZXh0IHg9IjIwOSIgeT0iMTc4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJyZ2IoMCwwLDApIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+KHBpa2Noci5jKTwvdGV4dD4KPC9zdmc+Cg==" width="400" alt="pikchr diagram" /></p>
+<p>Now with echo=true:</p>
+<pre class="pikchr" width="400px" data-echo="true"><code>arrow right 200% &quot;Markdown&quot; &quot;Source&quot;
+box rad 10px &quot;Markdown&quot; &quot;Formatter&quot; &quot;(markdown.c)&quot; fit
+arrow right 200% &quot;HTML+SVG&quot; &quot;Output&quot;
+arrow &lt;-&gt; down 70% from last box.s
+box same &quot;Pikchr&quot; &quot;Formatter&quot; &quot;(pikchr.c)&quot; fit</code></pre>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGNsYXNzPSJwaWtjaHIiIHZpZXdCb3g9IjAgMCA0MjMuODIxIDE5NS44NCI+Cjxwb2x5Z29uIHBvaW50cz0iMTQ2LDM3IDEzNCw0MSAxMzQsMzMiIHN0eWxlPSJmaWxsOnJnYigwLDAsMCkiLz4KPHBhdGggZD0iTTIsMzdMMTQwLDM3IiAgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6Mi4xNjtzdHJva2U6cmdiKDAsMCwwKTsiIC8+Cjx0ZXh0IHg9Ijc0IiB5PSIyNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPk1hcmtkb3duPC90ZXh0Pgo8dGV4dCB4PSI3NCIgeT0iNDkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5Tb3VyY2U8L3RleHQ+CjxwYXRoIGQ9Ik0xNjEsNzJMMjU4LDcyQTE1IDE1IDAgMCAwIDI3MyA1N0wyNzMsMTdBMTUgMTUgMCAwIDAgMjU4IDJMMTYxLDJBMTUgMTUgMCAwIDAgMTQ2IDE3TDE0Niw1N0ExNSAxNSAwIDAgMCAxNjEgNzJaIiAgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6Mi4xNjtzdHJva2U6cmdiKDAsMCwwKTsiIC8+Cjx0ZXh0IHg9IjIwOSIgeT0iMTciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5NYXJrZG93bjwvdGV4dD4KPHRleHQgeD0iMjA5IiB5PSIzNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPkZvcm1hdHRlcjwvdGV4dD4KPHRleHQgeD0iMjA5IiB5PSI1NyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPihtYXJrZG93bi5jKTwvdGV4dD4KPHBvbHlnb24gcG9pbnRzPSI0MTcsMzcgNDA1LDQxIDQwNSwzMyIgc3R5bGU9ImZpbGw6cmdiKDAsMCwwKSIvPgo8cGF0aCBkPSJNMjczLDM3TDQxMSwzNyIgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjIuMTY7c3Ryb2tlOnJnYigwLDAsMCk7IiAvPgo8dGV4dCB4PSIzNDUiIHk9IjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJyZ2IoMCwwLDApIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+SFRNTCtTVkc8L3RleHQ+Cjx0ZXh0IHg9IjM0NSIgeT0iNDkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5PdXRwdXQ8L3RleHQ+Cjxwb2x5Z29uIHBvaW50cz0iMjA5LDcyIDIxNCw4NCAyMDUsODQiIHN0eWxlPSJmaWxsOnJnYigwLDAsMCkiLz4KPHBvbHlnb24gcG9pbnRzPSIyMDksMTIzIDIwNSwxMTEgMjE0LDExMSIgc3R5bGU9ImZpbGw6cmdiKDAsMCwwKSIvPgo8cGF0aCBkPSJNMjA5LDc4TDIwOSwxMTciICBzdHlsZT0iZmlsbDpub25lO3N0cm9rZS13aWR0aDoyLjE2O3N0cm9rZTpyZ2IoMCwwLDApOyIgLz4KPHBhdGggZD0iTTE3NiwxOTNMMjQzLDE5M0ExNSAxNSAwIDAgMCAyNTggMTc4TDI1OCwxMzhBMTUgMTUgMCAwIDAgMjQzIDEyM0wxNzYsMTIzQTE1IDE1IDAgMCAwIDE2MSAxMzhMMTYxLDE3OEExNSAxNSAwIDAgMCAxNzYgMTkzWiIgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjIuMTY7c3Ryb2tlOnJnYigwLDAsMCk7IiAvPgo8dGV4dCB4PSIyMDkiIHk9IjEzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiKDAsMCwwKSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPlBpa2NocjwvdGV4dD4KPHRleHQgeD0iMjA5IiB5PSIxNTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYigwLDAsMCkiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5Gb3JtYXR0ZXI8L3RleHQ+Cjx0ZXh0IHg9IjIwOSIgeT0iMTc4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJyZ2IoMCwwLDApIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+KHBpa2Noci5jKTwvdGV4dD4KPC9zdmc+Cg==" width="400" alt="pikchr diagram" /></p>
+<p>Now just a check that the pikchr filter can be combined with the kroki filter.</p>
+<pre class="kroki"><code>class A { }
+class B { }
+A -&gt; B</code></pre>
+<p><img src="https://kroki.io/plantuml/svg/eNpLzkksLlZwVKhWqOVKBrOdwGxHBV07BScAk64Iog==" alt="" /></p>
+<h2 id="eof">EOF</h2>
+</body>
+</html>

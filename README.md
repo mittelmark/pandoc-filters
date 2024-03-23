@@ -7,7 +7,9 @@ The following filters are provided:
 - [filter-pikchr.lua](lua-filters/filter-pikchr.lua) - [Manual :orange_book:](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mittelmark/pandoc-filters/master/doc/filter-pikchr.html)
   adding [pikchr]([https://pikchr.org) diagrams to your documentation directly
 - [filter-python.lua](lua-filters/filter-python.lua) -
-[Manual :orange_book:](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mittelmark/pandoc-filters/master/doc/filter-python.html) - embed and evaluate Python code in Markdown documents, here an [HTML output file](http://htmlpreview.github.io/?https://github.com/mittelmark/pandoc-filters/blob/master/examples/example-out.html)
+[Manual :orange_book:](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mittelmark/pandoc-filters/master/doc/filter-python.html) - embed and evaluate Python code in Markdown documents, here an 
+[HTML example output file for PlantUML code](http://htmlpreview.github.io/?https://github.com/mittelmark/pandoc-filters/blob/master/examples/example-out.html)
+and here an [HTML example output file for Pikchr code](http://htmlpreview.github.io/?https://github.com/mittelmark/pandoc-filters/blob/master/examples/example-pikchr.html)
 - [filter-kroki.lua](lua-filters/filter-kroki.lua) - 
 [Manual :orange_book:](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mittelmark/pandoc-filters/master/doc/filter-kroki.html) - embed diagram code and embed image links using the [https://krokio.io](https://kroki.io) webservice, here an [example HTML output file](http://htmlpreview.github.io/?https://github.com/mittelmark/pandoc-filters/blob/master/examples/example-kroki.html)
 - [filter-link-to-html.lua](lua-filters/filter-link-to-html.lua) - [Manual :orange_book:](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mittelmark/pandoc-filters/master/doc/filter-link-to-html.html) - convert Markdown or Rst file extensions in links to HTML extensions
